@@ -2,9 +2,9 @@
     <div>
         <ol>
             <li v-for="(element, index) in props.items" :key="index">
-                 {{codeHtml(element)}}
+                {{ codeHtml(element) }}
             </li>
-            
+
         </ol>
     </div>
 </template>
@@ -17,14 +17,17 @@ const props = defineProps({
 })
 
 const codeHtml = (element) => {
-    return `<option value="cp08_document|lk|${element}">Identificación como ${element}</option>`;
+    if (element == element.number) {
+        return `<option value="cp08_document|lk|${element}">Identificación como ${element}</option>`;
+    }
+    return `<option value="cs18_login|eq|${element}">Usuario = ${element}</option>`
 }
 
 //const emits = defineEmits(['buttonClick'])
 
 /*const emitEvent = () => {
     emits('buttonClick', 'Hola');
-}}*/
+}}*/    
 
 </script>
 
